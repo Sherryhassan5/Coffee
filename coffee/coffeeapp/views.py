@@ -1,7 +1,12 @@
 from django.shortcuts import render
 from .models import *
 from django.shortcuts import get_object_or_404
+from django.template.defaulttags import register
 # Create your views here.
+
+@register.filter
+def range_filter(value):
+    return range(value)
 
 def home(request):
     coffee = Coffee.objects.all()
@@ -17,5 +22,6 @@ def store(request):
 
 def product(request, id):
     product = get_object_or_404(Coffee, id = id)
-    context = {'product':product}
+    reviews = CoffeeReview.objects.filter(coffee_id=id)
+    context = {'product':product, 'reviews':reviews,}
     return render(request, 'coffeeapp/product.html', context)
