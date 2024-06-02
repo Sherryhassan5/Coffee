@@ -1,0 +1,28 @@
+{% extends 'coffeeapp/base.html' %}
+
+{% block title %}
+Product Page
+{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="row py-5 justify-content-center">
+        
+        <div class="col-5 m-1">
+            <img src="{{product.image.url}}" class="card-img-top h-100 rounded" alt="...">
+            
+        </div>
+        <div class="col-6 m-1">
+            <div>
+                <h1 class="text-bold text-light text-capitalize my-5">{{product.name}}</h1>
+                <p class="text-light">{{product.description}} <br><br>
+                    {{product.added_at}}</p>
+                
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+{% endblock%}

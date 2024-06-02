@@ -1,0 +1,27 @@
+{% extends 'coffeeapp/base.html' %}
+
+{% block title %}
+Store Page
+{% endblock %}
+{% block content %}
+
+<div class="container">
+    <h1 class="text-center text-light m-5">Store</h1>
+    <div class="d-flex flex-wrap justify-content-center">
+        {% for coffee in coffee %}
+        <div class="card col-3 m-1">
+            <img src="{{coffee.image.url}}" class="card-img-top h-75" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{coffee.name}}</h5>
+                <p class="card-text">{{coffee.added_at}} <br></p>
+                <a href="{% url 'product' coffee.id %}" >
+                    <button class="btn btn-outline-success w-100">{{coffee.type}}-{{coffee.id}}</button>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock%}
