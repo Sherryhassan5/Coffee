@@ -17,6 +17,9 @@
         .rating {
             color: #ffd700; /* Gold color for stars */
         }
+        label{
+          color: whitesmoke;
+        }
     </style>
 </head>
 <body>
@@ -35,6 +38,9 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link {% if request.path == '/store/' %} active {% endif %}" href="{% url 'store' %}">Store</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == '/check_store/' %} active {% endif %}" href="{% url 'check_store' %}">Check Store</a>
               </li>
               
             </ul>

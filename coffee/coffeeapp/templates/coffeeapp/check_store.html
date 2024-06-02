@@ -1,0 +1,24 @@
+{% extends 'coffeeapp/base.html' %}
+{% block content %}
+<div class="d-flex justify-content-center my-5">
+    <form method="POST">
+        {{ form.as_p }}
+        {% csrf_token %}
+
+        <div class="text-center my-2"> <button class="btn btn-outline-danger" type="submit">Search store</button></div>
+    </form>
+</div>
+
+{% if stores %}
+
+<h1 class="text-center text-light"> Stores Available</h1>
+<div class="d-flex justify-content-center my-5">
+    <ul>
+        {% for store in stores %}
+        <li class="text-light">{{store.name}}-{{store.location}}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+{% endblock %}
